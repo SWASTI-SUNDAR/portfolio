@@ -40,7 +40,7 @@ const ComingSoon = () => {
             </li>
             <li>
               <a
-                href="https://www.linkedin.com/in/swasti-sundar-2b0b3b1b3/"
+                href="https://www.linkedin.com/in/swasti-sundar-pradhan-980087224/"
                 className="hover:text-white  transition duration-300 ease-in-out"
                 target="_blank"
               >
