@@ -1,11 +1,18 @@
-import ComingSoon from "./pages/ComingSoon";
+import React from "react";
+import HomePage from "./pages/HomePage";
+import Skills from "./pages/Skills";
+import ContactMe from "./pages/ContactMe";
+import About from "./pages/About";
 
-function App() {
+const App = () => {
   return (
-    <>
-      <ComingSoon />
-    </>
+    <div className="overflow-hidden bg-black">
+      <HomePage />
+      <Skills />
+      <ContactMe />
+      <About />
+    </div>
   );
-}
+};
 
 export default App;
