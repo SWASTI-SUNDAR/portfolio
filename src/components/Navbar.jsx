@@ -4,12 +4,13 @@ import { FaAward } from "react-icons/fa";
 import { IoIosContact } from "react-icons/io";
 import { HiAcademicCap } from "react-icons/Hi";
 import { GiSpiderWeb } from "react-icons/gi";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <>
-      <nav className=" flex z-50 mt-6 justify-center items-center fixed   w-screen">
-        <div className=" bg-[#0C0821] h-[4.5rem] w-[90%] flex justify-between items-center gap-5  border border-[black] rounded-full text-black mx-auto">
+      <nav className=" flex z-50 mt-5 justify-center  items-center fixed   w-screen">
+        <div className=" bg-transparent backdrop-blur-lg  h-[4.5rem] w-[90%] flex justify-between items-center gap-5  border border-[white] rounded-full text-black mx-auto">
           <div className="flex gap-6 ml-5 mr-2  ">
             <div className="logo text-white md:text-2xl ">
               <div className="logo cursor-pointer flex justify-center items-center text-white md:text-[2rem]">
@@ -30,30 +31,33 @@ const Navbar = () => {
             </div>
             <div className="services md:flex ml-12 hidden ">
               <ul className="flex space-x-16 justify-center items-center ">
-                {NavbarData.map((val, key) => {
+                {NavbarData.map((val) => {
                   return (
-                    <>
-                      <li
-                        key={val?.id}
-                        className="cursor-pointer no-underline transition duration-300 group space-y-1"
+                    <li
+                      key={val?.id}
+                      className="cursor-pointer no-underline transition duration-300 group space-y-1"
+                    >
+                      <NavLink
+                        to={val?.path}
+                        activeClassName="text-[#00abf0]"
+                        className={({ isActive }) => {
+                          return isActive ? "text-[#00abf0]" : "text-white";
+                        }}
                       >
-                        <Link
-                          href={val?.path}
-                          className="bg-transparent text-lg text-white group"
-                        >
-                          {val?.title}
-                        </Link>
-                        <span className="block max-w-0 md:group-hover:max-w-full transition-all duration-500 h-0.5 pt-0.5 bg-white"></span>
-                      </li>
-                    </>
+                        {val?.title}
+                      </NavLink>
+                      <span className="block max-w-0 md:group-hover:max-w-full transition-all duration-500 h-0.5 pt-0.5 bg-white"></span>
+                    </li>
                   );
                 })}
               </ul>
             </div>
           </div>
           <div className="flex gap-5 justify-center items-center ">
-            <div className="light-mode text-white hidden md:flex">Light Mode</div>
-            <div className="contact hidden md:flex text-white mr-4 ml-2 border rounded-full p-4 bg-[#330A58] ">
+            <div className="light-mode text-white hidden md:flex">
+              Light Mode
+            </div>
+            <div className="contact hidden md:flex text-white mr-4 ml-2 borer rounded-full p-4 bg-[#330A58] ">
               <Link href={"contact"}>Contact Me</Link>
             </div>
           </div>
@@ -91,4 +95,3 @@ const NavbarData = [
     path: "/About",
   },
 ];
-

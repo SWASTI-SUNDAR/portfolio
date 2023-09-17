@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Navbar />
-      <MobileNav/>
+      <MobileNav />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/about" element={<About />} />

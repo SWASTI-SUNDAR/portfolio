@@ -9,7 +9,9 @@ const App = () => {
     <div className="overflow-hidden bg-black">
       <HomePage />
       <Skills />
+      
       <ContactMe />
+
       <About />
     </div>
   );

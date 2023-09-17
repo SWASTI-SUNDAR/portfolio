@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Fuggles&family=Lobster&family=Oswald:wght@300&family=Poppins:wght@600&family=Roboto&family=Urbanist:wght@300&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+    background-color: #100f0f;
+    color: #333;
+    scroll-behavior: smooth !important;
+}
