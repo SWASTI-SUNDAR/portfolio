@@ -8,15 +8,26 @@ import {
   BsTwitter,
   BsYoutube,
 } from "react-icons/bs";
+import { motion } from "framer-motion";
 const Socialnew = () => {
   return (
-    <div className="fixed left-4 top-[30%]">
+    <motion.div 
+    initial={{ y: -200, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    transition={{ delay: 0.2, duration: 0.5 }}
+
+    className="fixed left-4 top-[30%]">
       <ul className="flex gap-5 flex-col ">
         {SocialsData.map((item) => {
           return (
-            <li className="group" key={item.id}>
-              <div className="text-white hidden  group-hover:flex gap-3  ">
-                <span className="flex absolute mt-1  -ml-[4.3rem] text-sm ">
+            <motion.li
+              whileHover={{ scale: 2.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="group"
+              key={item.id}
+            >
+              <div className="text-[gray] hidden  group-hover:flex gap-3  ">
+                <span className="flex absolute mt-1  ml-[2.2rem] text-sm ">
                   {item.title}
                 </span>
               </div>
@@ -27,11 +38,11 @@ const Socialnew = () => {
               >
                 {item.icon}
               </Link>
-            </li>
+            </motion.li>
           );
         })}
       </ul>
-    </div>
+    </motion.div>
   );
 };
 

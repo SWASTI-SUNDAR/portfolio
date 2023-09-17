@@ -5,12 +5,17 @@ import { IoIosContact } from "react-icons/io";
 import { HiAcademicCap } from "react-icons/Hi";
 import { GiSpiderWeb } from "react-icons/gi";
 import { Link, NavLink } from "react-router-dom";
-
+import { motion } from "framer-motion";
 const Navbar = () => {
   return (
     <>
       <nav className=" flex z-50 mt-5 justify-center  items-center fixed   w-screen">
-        <div className=" bg-transparent backdrop-blur-lg  h-[4.5rem] w-[90%] flex justify-between items-center gap-5  border border-[white] rounded-full text-black mx-auto">
+        <motion.div
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0.1, opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.4 }}
+          className=" bg-transparent backdrop-blur-lg  h-[4.5rem] w-[90%] flex justify-between items-center gap-5  border border-[white] rounded-full text-black mx-auto"
+        >
           <div className="flex gap-6 ml-5 mr-2  ">
             <div className="logo text-white md:text-2xl ">
               <div className="logo cursor-pointer flex justify-center items-center text-white md:text-[2rem]">
@@ -30,7 +35,7 @@ const Navbar = () => {
               </div>
             </div>
             <div className="services md:flex ml-12 hidden ">
-              <ul className="flex space-x-16 justify-center items-center ">
+              <ul className="flex space-x-16 justify-center items-center font- ">
                 {NavbarData.map((val) => {
                   return (
                     <li
@@ -41,7 +46,7 @@ const Navbar = () => {
                         to={val?.path}
                         activeClassName="text-[#00abf0]"
                         className={({ isActive }) => {
-                          return isActive ? "text-[#00abf0]" : "text-white";
+                          return isActive ? "text-[white]" : "text-gray-400";
                         }}
                       >
                         {val?.title}
@@ -61,7 +66,7 @@ const Navbar = () => {
               <Link href={"contact"}>Contact Me</Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       </nav>
     </>
   );

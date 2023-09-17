@@ -12,8 +12,11 @@ const HomePage = () => {
       bg-cover bg-center  flex justify-between flex-col-reverse md:flex-row "
       >
         <motion.div
-        
-        className="w-full h-4/5 mt-auto flex flex-col md:justify-center gap-12 md:gap-2  bg-/white ">
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="w-full h-4/5 mt-auto flex flex-col md:justify-center gap-12 md:gap-2  bg-/white "
+        >
           <div className="flex justify-center flex-col items-center   ">
             <span className="text-gray-400 text-xl mt-12 md:mt-0 md:text-[2rem] ">
               Full Stack Web Devloper{" "}
@@ -36,13 +39,18 @@ const HomePage = () => {
             <Contact />
           </div>
         </motion.div>
-        <div className="w-full   flex ">
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="w-full   flex "
+        >
           <img
             src="/Group1.png"
             className=" h-full md:pt-20 pt-32  pr-5 bg-cover bg-center   "
             alt=""
           />
-        </div>
+        </motion.div>
       </div>
       <div className="hidden md:flex">
         <Socials />
