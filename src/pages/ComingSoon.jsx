@@ -8,7 +8,7 @@ const ComingSoon = () => {
       bg-gradient-to-r from-violet-500 to-fuchsia-500 flex-col space-y-9
       "
       >
-        <h1 className=" md:text-7xl  text-3xl font-bold font-serif">Coming Soon</h1>
+        <h1 className=" md:text-7xl  text-3xl font-bold font-serif">Coming Very Soon</h1>
         <div>
           <ul className="flex text-3xl space-x-8">
             <li>
