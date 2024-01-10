@@ -1,38 +1,115 @@
-import React from "react";
-import { motion } from "framer-motion";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+
+import { CTA } from "../components";
+import { experiences, skills } from "../constants";
+
+import "react-vertical-timeline-component/style.min.css";
+
 const About = () => {
   return (
-    <motion.div
-      initial={{ x: -100, opacity: 0 }}
-      animate={{ x: 0.1, opacity: 1 }}
-      transition={{ delay: 0.5, duration: .5 }}
-      className="min-h-screen text-center flex justify-center items-center flex-col gap-5 text-white font-roboto"
-    >
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat
-      possimus laborum modi, et maiores sint aliquam quia iusto dolor autem
-      molestiae recusandae esse error, voluptatem perspiciatis impedit
-      reprehenderit sed quod accusantium cupiditate natus delectus aperiam rem?
-      Adipisci, necessitatibus consequuntur ullam aliquam deserunt, id sapiente
-      molestiae nisi nam blanditiis reprehenderit? Laboriosam, nihil iusto
-      aspernatur nisi doloremque id at in ea reprehenderit esse voluptatum
-      voluptas, accusantium, vel inventore placeat dolorum neque officiis
-      dignissimos soluta corporis quidem eos tempora iste? Enim voluptate esse
-      quibusdam? Aperiam laboriosam hic, ex suscipit harum molestiae id nam iure
-      maxime, perspiciatis quisquam unde assumenda blanditiis cupiditate
-      necessitatibus doloribus quos a molestias accusantium quas iusto? Aliquam,
-      neque dignissimos maxime, accusamus a error ipsam earum nisi molestiae
-      magnam cupiditate molestias optio excepturi eveniet praesentium aspernatur
-      quos soluta iusto, at quisquam sunt laboriosam adipisci quibusdam ab.
-      Maiores architecto rerum sunt deserunt? Modi, nisi molestias neque animi
-      saepe quisquam exercitationem maxime perferendis nemo sed vitae ipsa ad
-      magnam eius, dolore recusandae laudantium alias natus delectus eligendi
-      ullam repellendus labore. Provident alias vitae rem harum corporis itaque
-      voluptatem nihil nesciunt dolores aperiam, minus totam sit placeat ratione
-      atque culpa expedita aspernatur distinctio esse ullam quod aliquam dolor
-      iure ea? Unde consequuntur perspiciatis, sed aperiam perferendis nostrum,
-      quae eum, consequatur similique deleniti quam repellendus vitae amet
-      molestias. Vitae dolorum quia laborum ipsum accusantium assumenda nobis?
-    </motion.div>
+    <section className='max-container'>
+      <h1 className='head-text'>
+        Hello, I'm{" "}
+        <span className='blue-gradient_text font-semibold drop-shadow'>
+          {" "}
+          Adrian
+        </span>{" "}
+        👋
+      </h1>
+
+      <div className='mt-5 flex flex-col gap-3 text-slate-500'>
+        <p>
+          Software Engineer based in Croatia, specializing in technical
+          education through hands-on learning and building applications.
+        </p>
+      </div>
+
+      <div className='py-10 flex flex-col'>
+        <h3 className='subhead-text'>My Skills</h3>
+
+        <div className='mt-16 flex flex-wrap gap-12'>
+          {skills.map((skill) => (
+            <div className='block-container w-20 h-20' key={skill.name}>
+              <div className='btn-back rounded-xl' />
+              <div className='btn-front rounded-xl flex justify-center items-center'>
+                <img
+                  src={skill.imageUrl}
+                  alt={skill.name}
+                  className='w-1/2 h-1/2 object-contain'
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className='py-16'>
+        <h3 className='subhead-text'>Work Experience.</h3>
+        <div className='mt-5 flex flex-col gap-3 text-slate-500'>
+          <p>
+            I've worked with all sorts of companies, leveling up my skills and
+            teaming up with smart people. Here's the rundown:
+          </p>
+        </div>
+
+        <div className='mt-12 flex'>
+          <VerticalTimeline>
+            {experiences.map((experience, index) => (
+              <VerticalTimelineElement
+                key={experience.company_name}
+                date={experience.date}
+                iconStyle={{ background: experience.iconBg }}
+                icon={
+                  <div className='flex justify-center items-center w-full h-full'>
+                    <img
+                      src={experience.icon}
+                      alt={experience.company_name}
+                      className='w-[60%] h-[60%] object-contain'
+                    />
+                  </div>
+                }
+                contentStyle={{
+                  borderBottom: "8px",
+                  borderStyle: "solid",
+                  borderBottomColor: experience.iconBg,
+                  boxShadow: "none",
+                }}
+              >
+                <div>
+                  <h3 className='text-black text-xl font-poppins font-semibold'>
+                    {experience.title}
+                  </h3>
+                  <p
+                    className='text-black-500 font-medium text-base'
+                    style={{ margin: 0 }}
+                  >
+                    {experience.company_name}
+                  </p>
+                </div>
+
+                <ul className='my-5 list-disc ml-5 space-y-2'>
+                  {experience.points.map((point, index) => (
+                    <li
+                      key={`experience-point-${index}`}
+                      className='text-black-500/50 font-normal pl-1 text-sm'
+                    >
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </VerticalTimelineElement>
+            ))}
+          </VerticalTimeline>
+        </div>
+      </div>
+
+      <hr className='border-slate-200' />
+
+      <CTA />
+    </section>
   );
 };
 
